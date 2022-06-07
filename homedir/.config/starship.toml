@@ -1,0 +1,39 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+
+format = "$all"
+#format = "$directory$all$character"
+
+[hostname]
+ssh_only=false
+format='[$hostname]($style)[\]](bold yellow)'
+style="bold purple"
+
+[username]
+show_always=true
+format='[\[](bold yellow)[$user]($style)[ @ ](bold yellow)'
+style_user="bold blue"
+
+[directory]
+truncation_length = 2
+truncate_to_repo = true # truncates directory to root folder if in github repo
+format='[\[📂️$path\]]($style)[$read_only]($read_only_style)'
+#style = "bold italic #87A752"
+
+[git_branch]
+format='[\[$symbol$branch(:$remote_branch)\]]($style)'
+
+[rust]
+format = '[\[$symbol($version)\]]($style)'
+[package]
+format='\[[$symbol$version]\]($style)'
+
+[python]
+format='[\[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\))\]]($style)'
+
+[vagrant]
+format='[\[$symbol($version)\]]($style)'
+disabled=true

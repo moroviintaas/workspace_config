@@ -28,12 +28,13 @@ format='[\[$symbol$branch(:$remote_branch)\]]($style)'
 
 [rust]
 format = '[\[$symbol($version)\]]($style)'
+symbol = " "
 [package]
-format='\[[$symbol$version]\]($style)'
+format='[\[$symbol$version\]]($style)'
 
 [python]
 format='[\[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\))\]]($style)'
-
+symbol = " "
 [vagrant]
 format='[\[$symbol($version)\]]($style)'
 disabled=true

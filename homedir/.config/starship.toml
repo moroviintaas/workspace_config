@@ -38,3 +38,6 @@ symbol = " "
 [vagrant]
 format='[\[$symbol($version)\]]($style)'
 disabled=true
+[c]
+format='[\[$symbol($version)\]]($style)'
+detect_extensions=["c", "h", "cpp", "hpp"]

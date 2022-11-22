@@ -41,3 +41,8 @@ disabled=true
 [c]
 format='[\[$symbol($version)\]]($style)'
 detect_extensions=["c", "h", "cpp", "hpp"]
+
+[git_metrics]
+disabled=false
+#format = '([\[+$added\]]($added_style))([\[-$deleted\]]($deleted_style) )'
+format = '(\[([+$added]($added_style))/([-$deleted]($deleted_style))\])("bold gray")'

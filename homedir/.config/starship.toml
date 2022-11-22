@@ -20,17 +20,22 @@ style_user="bold blue"
 [directory]
 truncation_length = 2
 truncate_to_repo = true # truncates directory to root folder if in github repo
-format='[\[📂️$path\]]($style)[$read_only]($read_only_style)'
+format='[\[📂️ $path\] ]($style)[$read_only]($read_only_style)'
 #style = "bold italic #87A752"
 
 [git_branch]
 format='[\[$symbol$branch(:$remote_branch)\]]($style)'
 
+[git_status]
+style= "bold blue"
+
 [rust]
 format = '[\[$symbol($version)\]]($style)'
-symbol = " "
+symbol = " "
 [package]
 format='[\[$symbol$version\]]($style)'
+#symbol = ''
+symbol = ' '
 
 [python]
 format='[\[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\))\]]($style)'
@@ -45,4 +50,11 @@ detect_extensions=["c", "h", "cpp", "hpp"]
 [git_metrics]
 disabled=false
 #format = '([\[+$added\]]($added_style))([\[-$deleted\]]($deleted_style) )'
-format = '(\[([+$added]($added_style))/([-$deleted]($deleted_style))\])("bold gray")'
+#format = '(\[([+$added]($added_style))/([-$deleted]($deleted_style))\])("bold grey")'
+format = '(\[([+$added]($added_style))/([-$deleted]($deleted_style))\])("#707070")'
+
+[memory_usage]
+threshold = 50
+format = '[\[$symbol($ram_pct)\]](bold dimmed red)'
+disabled = false
+symbol = ''

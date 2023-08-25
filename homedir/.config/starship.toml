@@ -58,3 +58,10 @@ threshold = 50
 format = '[\[$symbol($ram_pct)\]](bold dimmed red)'
 disabled = false
 symbol = ''
+
+[docker_context]
+format = '([\[$symbol(&version)\]]($style)'
+symbol = '🐳'
+disabled = false
+detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
+

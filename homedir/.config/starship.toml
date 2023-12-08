@@ -20,7 +20,7 @@ style_user="bold blue"
 [directory]
 truncation_length = 2
 truncate_to_repo = true # truncates directory to root folder if in github repo
-format='[\[📂️ $path\] ]($style)[$read_only]($read_only_style)'
+format='[\[📂️ $path\]]($style)[$read_only]($read_only_style)'
 #style = "bold italic #87A752"
 
 [git_branch]
@@ -60,8 +60,11 @@ disabled = false
 symbol = ''
 
 [docker_context]
-format = '([\[$symbol(&version)\]]($style)'
+format = '[\[$symbol(${version})\]]($style)'
 symbol = '🐳'
 disabled = false
 detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
+
+[golang]
+format = '[\[$symbol($version)\]]($style)'
 

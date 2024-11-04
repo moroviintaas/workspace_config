@@ -16,16 +16,17 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 #set $term foot
-set $term alacritty
+set $term ~/.cargo/bin/alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
-
+#set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $menu bemenu-run --fn $uifont -b -p "▶" --tf "$prompt" --hf "$highlight" --sf "$highlight" --scf "$highlight" | xargs swaymsg exec
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 #output * bg /usr/share/backgrounds/default.png fill
+output * bg ~/.local/wallpapers/wp1.jpg fill
 #:output * bg ~/.config/wallpaper/wp0.jpg fill
 #
 # Example configuration:
@@ -38,15 +39,15 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
 exec swayidle -w \
-	timeout 300 'swaylock -i ~/.config/lockscreen/ls0.png -u' \
-	timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-	before-sleep 'swaylock -f -c 000000'
+         timeout 300 'swaylock -f -c 000000' \
+         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+         before-sleep 'swaylock -f -c 000000'
+#
+#exec swayidle -w \
+#	timeout 300 'swaylock -i ~/.config/lockscreen/ls0.png -u' \
+#	timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+#	before-sleep 'swaylock -f -c 000000'
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
@@ -67,7 +68,9 @@ exec swayidle -w \
 input "1:1:AT_Translated_Set_2_keyboard" {
 	xkb_layout pl   
 }
-
+input type:keyboard {
+	xkb_layout pl   
+}
 
 ### Key bindings
 #
@@ -215,6 +218,8 @@ bindsym $mod+r mode "resize"
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     position top
+#    mode hide
+#    hidden_state hide
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
@@ -226,5 +231,7 @@ bar {
         inactive_workspace #32323200 #32323200 #5c5c5c
     }
 }
-
+default_border none
+gaps inner 4
 include /etc/sway/config.d/*
+
